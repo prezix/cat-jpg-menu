@@ -22,13 +22,13 @@ Cat-JPG-Menu - настраиваемый аддон меню для Garry's Mod
 ## Установка
 
 1. Скачайте последний релиз или клонируйте репозиторий.
-2. Поместите папку проекта в директорию `addons` вашего Garry's Mod.
+2. Поместите папку проекта в директорию `garrysmod` вашего Garry's Mod.
 3. Запустите Garry's Mod.
 
 Пример пути:
 
 ```text
-steamapps/common/GarrysMod/garrysmod/addons/Cat-JPG-Menu
+steamapps/common/GarrysMod/garrysmod/
 ```
 
 ## Скриншоты
