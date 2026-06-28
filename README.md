@@ -10,19 +10,6 @@ Cat-JPG-Menu is a customizable menu addon for Garry's Mod.
 
 The original project was developed by **twenty two** and **babzoid1**. This repository preserves the original codebase and continues maintenance for modern Garry's Mod versions.
 
-Current development focuses on:
-
-* Bug fixes
-* Compatibility updates
-* Performance improvements
-* New features
-* Long-term project support
-
-## Original Developers
-
-* **twenty two**
-* **babzoid1**
-
 ## Features
 
 * Custom Garry's Mod main menu
