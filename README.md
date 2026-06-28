@@ -22,13 +22,13 @@ The original project was developed by **twenty two** and **babzoid1**. This repo
 ## Installation
 
 1. Download the latest release or clone this repository.
-2. Place the project folder into your Garry's Mod `addons` directory.
+2. Place the project folder into your Garry's Mod `garrysmod` directory.
 3. Launch Garry's Mod.
 
 Example path:
 
 ```text
-steamapps/common/GarrysMod/garrysmod/addons/Cat-JPG-Menu
+steamapps/common/GarrysMod/garrysmod/
 ```
 
 ## Screenshots
