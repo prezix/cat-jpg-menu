@@ -1,0 +1,13 @@
+{
+	"title": "Cat-JPG-Menu",
+	"type": "ServerContent",
+	"tags": [
+		"fun",
+		"cartoon"
+	],
+	"ignore": [
+		".git/*",
+		"README.md",
+		"README_RU.md"
+	]
+}

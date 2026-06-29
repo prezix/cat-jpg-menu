@@ -13,19 +13,19 @@
 {
 	margin-right: 5px;
 	margin-bottom: 5px;
+	background-color: #efefef;
 	padding: 5px 20px;
 	border-radius: 3px;
 	cursor: pointer;
 	position: relative;
-	color: #fff;
 	height: 34px;
 	overflow: hidden;
-	background-image: -webkit-linear-gradient(bottom, rgb(44,44,44) 1%, rgb(55,55,55) 99%);
+	background-image: -webkit-linear-gradient(bottom, rgb(230,230,230) 1%, rgb(240,240,240) 99%);
 }
 
 .gamemode:hover
 {
-	background-image: -webkit-linear-gradient(bottom, rgb(33,33,33) 1%, rgb(27,27,27) 99%);
+	background-image: -webkit-linear-gradient(bottom, rgb(250,230,150) 1%, rgb(250,250,150) 99%);
 }
 
 .gamemode .name
@@ -40,7 +40,7 @@
 
 .gamemode .name tag
 {
-	background: #ffae00;
+	background: #2387ed;
 	color: #fff;
 	padding: 1px 12px;
 	padding-bottom: 2px;
@@ -57,7 +57,7 @@
 {
 	text-align: right;
 	font-size: 11px;
-	color: #fff;
+	color: #555;
 	position: absolute;
 	bottom: 3px;
 	left: 43px;
@@ -75,49 +75,70 @@
 
 H1 small
 {
-	color: #fff;
+	color: #888;
 	font-size: 50%;
 	font-weight: normal;
 	padding-left: 8px;
 }
-#retard {color: #fff;}
-.serverlist
+
+.serverlist_layout
 {
+	display: -webkit-box;
+	-webkit-box-pack: justify;
+	-webkit-box-align: start;
 	position: absolute;
 	top: 90px;
 	bottom: 0px;
 	left: 0px;
-	right: 320px;
-	background-color: rgb(22,22,22);
-	padding: 10px;
-	border-radius: 4px;
+	right: 0px;
 }
 
-.serverlist ping, .serverlist maxplayers, .serverlist players, .serverlist map, .serverlist rank
+.serverlist
+{
+	-webkit-box-flex: 1;
+	position: relative;
+	background-color: white;
+	padding: 10px;
+	border-radius: 4px;
+	box-sizing: border-box;
+	height: 100%;
+}
+
+.serverlist.found_servers
+{
+	top: 0px;
+	bottom: 0px;
+	left: 0px;
+	right: 0px;
+	position: relative;
+
+	margin-top: 5px;
+	padding: 1px;
+}
+
+.serverlist ping, .serverlist maxplayers, .serverlist players, .serverlist map, .serverlist rank, .serverlist lastvisited
 {
 	width: 50px;
 	font-size: 11px;
 	overflow: hidden;
-	height: 16px;
-	position: absolute;
 	text-align: center;
+	display: block;
 }
 
 .serverlist name
 {
-	position: absolute;
 	overflow: hidden;
 	white-space: nowrap;
-	left: 4px;
-	right: 240px;
 	font-size: 13px;
+	display: block;
+	margin-right: 3px;
+	-webkit-box-flex: 1;
+	line-height: 17px;
 }
 
-/*Fix HTML being awful to work with*/
 .serverlist name span
 {
-	position: relative;
-	top: -3px;
+	vertical-align: top;
 }
 
 .serverlist name tag
@@ -128,8 +149,10 @@ H1 small
 	font-weight: normal;
 	padding: 1px 10px;
 	margin-left: 5px;
-	position: relative;
-	top: -1px;
+	margin-top: 2px;
+	vertical-align: top;
+	display: inline-block;
+	line-height: normal;
 }
 
 .serverlist name .flag
@@ -140,8 +163,8 @@ H1 small
 
 .serverlist name tag.future
 {
-	background: #445994;
-	color: #fff;
+	background: #e6e6e6;
+	color: #000;
 }
 
 .serverlist name .passworded
@@ -149,28 +172,31 @@ H1 small
 	margin-right: 4px;
 }
 
+.serverlist lastvisited
+{
+	width: auto;
+	padding-right: 5px;
+	text-align: right;
+}
+
 .serverlist map
 {
-	right: 148px;
 	width: 90px;
 	text-align: left;
 }
 
 .serverlist players
 {
-	right: 100px;
 	width: 48px;
 }
 
 .serverlist ping
 {
-	right: 68px;
 	width: 32px;
 }
 
 .serverlist rank
 {
-	right: 4px;
 	width: 64px;
 }
 
@@ -204,15 +230,19 @@ H1 small
 .serverlist .server
 {
 	height: 16px;
-	background-color: rgb(22,22,22);
-	padding: 3px;
-	color: #fff;
+	background-color: #E7F0FF;
+	padding: 3px 4px;
+	color: #444;
 	cursor: pointer;
+	display: -webkit-box;
+	-webkit-box-pack: justify;
+	-webkit-box-align: stretch;
+	line-height: 16px;
 }
 
 .serverlist .server:nth-child(odd)
 {
-	background-color: rgb(22,22,22);
+	background-color: #F1F6FF;
 }
 
 .serverlist .empty
@@ -222,31 +252,34 @@ H1 small
 
 .serverlist .missingmap map
 {
-	color: #fff;
+	color: #955;
 }
 
 .serverlist .empty players
 {
-	color: #fff;
+	color: #daa;
 }
 
 .serverlist .server:hover
 {
-	background-color: rgb(33,33,33);
+	background-color: #B7DDFD;
 }
 
 .serverlist .header
 {
-	background-color: rgb(55,55,55);
-	height: 30px;
+	background-color: #2387ed;
 	position: absolute;
 	border-radius: 4px 4px 0 0;
-	padding-top: 4px;
+	padding: 4px;
 	font-size: 11px;
 
 	top: 8px;
 	left: 8px;
 	right: 8px;
+	display: -webkit-box;
+	-webkit-box-pack: justify;
+	-webkit-box-align: stretch;
+	line-height: 16px;
 }
 
 .serverlist .body
@@ -271,14 +304,12 @@ H1 small
 	.serverlist .servers ping, .serverlist .servers maxplayers, .serverlist .servers players, .serverlist .servers map, .serverlist .servers rank
 	{
 		font-size: 13px;
-		margin-top: 4px;
 	}
 
 	.serverlist name
 	{
 		font-size: 13px;
 		font-weight: bold;
-		right: 280px;
 	}
 
 	.serverlist map
@@ -319,28 +350,55 @@ A.bglink
 {
 	color: white;
 	font-weight: bold;
-	background-color: rgb(55,55,55);
+	background-color: #2387ed;
 	padding: 8px 10px;
-	border-radius: 2px;
+	border-radius: 3px;
 	display: inline-block;
 	font-size: 14px;
 	margin-top: 4px;
 
 	position: absolute; /*hack to make it appear over the search bar*/
 }
-A.bglink:hover {background-color: rgb(44,44,44);}
+
+A.bglink:hover
+{
+	background-color: #4f9ded;
+}
+
+A.bglink img
+{
+	vertical-align: middle;
+}
 
 .serverinfo
 {
-	position: absolute;
-	top: 90px;
-	bottom: 0px;
 	width: 280px;
-	right: 0px;
-	background-color: rgb(22,22,22);
+	background-color: white;
 	padding: 10px 15px;
 	border-radius: 4px;
-	color: #fff;
+	margin-left: 10px;
+	box-sizing: border-box;
+	height: 100%;
+}
+
+.serverinfo .closebtn
+{
+	width: 21px;
+	height: 21px;
+	position: absolute;
+	top: 1px;
+	right: 1px;
+	border-radius: 4px;
+	cursor: pointer;
+	background: #1a8cff;
+	background-image: url(../../img/cross.png);
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: 15px;
+}
+.serverinfo .closebtn:hover
+{
+	background-color: #4f9ded;
 }
 
 .serverinfo name
@@ -352,6 +410,7 @@ A.bglink:hover {background-color: rgb(44,44,44);}
 	overflow: hidden;
 	width: 100%;
 	letter-spacing: -1px;
+	user-select: text;
 }
 
 .serverinfo button
@@ -365,13 +424,12 @@ A.bglink:hover {background-color: rgb(44,44,44);}
 	text-align: left;
 	font-size: 12px;
 	user-select: text;
-	color: #fff;
 }
 
 .serverinfo subinfo
 {
 	display: block;
-	color: #fff;
+	color: #444;
 }
 
 .serverinfo > div
@@ -385,22 +443,19 @@ A.bglink:hover {background-color: rgb(44,44,44);}
 .serverinfo div.cell
 {
 	display: table-cell;
-	color: #fff;
 }
 
 .serverinfo header
 {
 	display: table-row;
 	height: 0;
-	color: #fff;
 }
 
 .serverinfo players
 {
 	display: block;
 	height: 100%;
-	background-color: rgb(22,22,22);
-	color: #fff;
+	background-color: #EEE;
 	border-radius: 4px;
 	overflow: auto;
 }
@@ -435,17 +490,16 @@ A.bglink:hover {background-color: rgb(44,44,44);}
 
 .activeserver
 {
-	background-color: #c9931e !important;
+	background-color: #FFA !important;
 }
 
 DIV.installgamemode
 {
-	margin-right: 320px;
 	height: 25px;
 	line-height: 26px;
 	font-size: 24px;
 	font-weight: bold;
-	background-color: rgb(55,55,55);
+	background-color: #2387ed;
 	text-align: center;
 	color: white;
 	padding: 5px;
@@ -456,13 +510,13 @@ DIV.installgamemode
 	border: 2px solid white;
 	z-index: 100;
 	cursor: pointer;
-	background: rgb(55,55,55) url( '../../img/gm_install32.png' ) no-repeat 6px center;
+	background: #2387ed url( '../../img/gm_install32.png' ) no-repeat 6px center;
 	padding-left: 36px;
 }
 
 DIV.installgamemode:hover
 {
-	background-color: rgb(44,44,44);
+	background-color: #4f9ded;
 }
 
 SPAN.installgamemode
@@ -473,20 +527,92 @@ SPAN.installgamemode
 	bottom: 0px;
 	border-radius: 0 4px 4px 0;
 	cursor: pointer;
-	background: rgb(55,55,55) url( '../../img/gm_install16.png' ) no-repeat 13px center;
+	background: #2387ed url( '../../img/gm_install16.png' ) no-repeat 13px center;
 	width: 42px;
 }
 
 SPAN.installgamemode:hover
 {
-	background-color: rgb(44,44,44);
+	background-color: #4f9ded;
 }
 
 .server_gamemodes
 {
+	border: 5px solid white;
+
+	position: absolute;
 	top: 64px;
-	border: 5px solid rgb(33,33,33);
-	background: rgb(22,22,22);
+	left: 0px;
+	bottom: 0px;
+	right: 0px;
+}
+
+.server_gamemodes_inner
+{
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	bottom: 0px;
+	right: 0px;
+}
+
+.add_fav_server
+{
+	background-color: #ddd;
+	/*border-radius: 6px;
+	color: black;
+	box-shadow: 0px 0px 14px -3px black;*/
+
+	margin: 0 auto;
+	padding: 5px 10px;
+	position: absolute;
+	left: 0px;
+	right: 0px;
+	bottom: 0px;
+	/* top: 16px; */
+}
+
+.add_fav_server button
+{
+	background-color: #2387ed;
+	color: white;
+	border: none;
+	border-radius: 4px;
+	padding: 4px 8px;
+	margin-left: 5px;
+
+	height: 24px;
+}
+
+.add_fav_server button:hover
+{
+	background-color: #4f9ded;
+}
+
+.add_fav_server input
+{
+	border: 1px solid #ABADB3;
+	border-radius: 3px;
+
+	height: 24px;
+	padding: 4px;
+	width: 200px;
+}
+
+.add_fav_server div.header
+{
+	display: -webkit-box;
+}
+.add_fav_server div.header span
+{
+	display: -webkit-box;
+	-webkit-box-flex: 1;
+	line-height: 24px;
+}
+.add_fav_server div.header div.fav_inputs
+{
+	display: -webkit-box;
+	-webkit-box-pack: end;
 }
 
 @media screen and (min-width: 1280px)
@@ -513,17 +639,36 @@ SPAN.installgamemode:hover
 	height: auto;
 	width: 15%;
 	min-width: 150px;
+	margin-right: 0px;
 }
 
+DIV.page DIV.options UL LI.sb_filters
+{
+	font-size: 16px;
+	/*color: black;
+	text-shadow: none;*/
+	margin-right: 42px;
+	/*padding: 8px 16px;*/
+}
+DIV.page DIV.options UL LI.sb_filter_sep
+{
+	border-top: 1px solid white;
+	box-shadow: 1px 1px 1px black;
+	margin-right: 42px;
+	margin-bottom: 24px;
+}
+DIV.page DIV.options UL LI.sb_filters .passworded
+{
+	vertical-align: text-top;
+}
 .gmfilter_rev
 {
 	cursor: hand;
+	vertical-align: middle;
+	margin-left: 3px;
+	margin-top: -2px;
 }
 
-.sb_filters
-{
-	font-size: 15px;
-}
 .small
 {
 	font-size: 16px;
@@ -537,15 +682,15 @@ SPAN.installgamemode:hover
 	text-align: center;
 }
 
-input[type=number]::-webkit-inner-spin-button {
-  -webkit-appearance: none; /*Unfortunately padding looks bad in CEF for these*/
+input[type=number]::-webkit-inner-spin-button
+{
+	-webkit-appearance: none; /*Unfortunately padding looks bad in CEF for these*/
 }
 
 .flags_filter
 {
-	margin-right: 48px;
 	margin-top: 5px;
-	background: #4d4d4d;
+	background: #9c9c9c;
 	padding: 4px;
 	padding-bottom: 0px; /*Done by the flags*/
 	border-radius: 4px;
@@ -558,7 +703,7 @@ input[type=number]::-webkit-inner-spin-button {
 	padding: 3px;
 	margin: 0 2px;
 	margin-bottom: 4px;
-	background: rgb(44,44,44);
+	background: #fff;
 	border-radius: 4px;
 }
 .flags_filter .flag.prefer
@@ -572,98 +717,137 @@ input[type=number]::-webkit-inner-spin-button {
 
 @media screen and (max-width: 1024px)
 {
-	div.page DIV.innerpage
+	div.page.server_browser DIV.innerpage
 	{
 		left: 180px;
 	}
+}
 
-	DIV.page DIV.options
+@media screen and (min-width: 1367px)
+{
+	div.page.server_browser
+	{
+		margin-right: 50px;
+	}
+}
+
+@media screen and (max-width: 1366px)
+{
+	div.page.server_browser DIV.innerpage
+	{
+		left: 250px;
+		right: 5px;
+	}
+
+	DIV.page.server_browser DIV.options
 	{
 		padding-left: 5px;
 	}
 
-	DIV.page DIV.options UL
+	DIV.page.server_browser DIV.options UL
 	{
 		margin-left: 0px;
 	}
 }
 
-@media screen and (max-width: 900px)
-{
-	.serverinfo
-	{
-		width: 200px;
-	}
-	.serverlist
-	{
-		right: 240px;
-	}
-
-	/*sigh*/
-	DIV.installgamemode, INPUT.searchbox
-	{
-		margin-right: 240px;
-	}
-}
-
 /* just make it not unacceptable */
-@media screen and (max-width: 700px)
+@media screen and (max-width: 1000px)
 {
-	DIV.page DIV.innerpage {
+	DIV.page DIV.innerpage
+	{
 		right: 5px;
 		top: 5px;
 		bottom: 5px;
 	}
 
-	.serverinfo {
+	.serverinfo
+	{
 		padding: 5px;
 		width: 150px;
 	}
 
-	.serverlist {
-		/*padding: 5px;*/
-		right: 160px;
-	}
-
-	.serverlist .header {
+	.serverlist .header
+	{
 		top: 3px;
 		left: 3px;
 		right: 3px;
-		height: 18px;
 	}
-	.serverlist .body {
+	.serverlist .body
+	{
 		top: 25px;
 		left: 3px;
 		right: 3px;
 		bottom: 3px;
 	}
 
-	.serverlist name {
-		left: 0px;
-		right: 158px;
+	.serverlist name
+	{
+		font-size: 11px;
+		line-height: inherit;
 	}
-	.serverlist map {
-		right: 100px; /*overlaps but its 640x480*/
+	.serverlist .server:not(:hover) lastvisited
+	{
+		display: none;
+	}
+	.serverlist lastvisited .lasttime
+	{
+		display: none;
+	}
+	.serverlist map
+	{
 		width: 56px;
 	}
-	.serverlist players {
-		right: 60px;
+	.serverlist players
+	{
 		width: 46px;
 	}
-	.serverlist ping {
-		right: 40px;
+	.serverlist ping
+	{
 		width: 18px;
 	}
-	.serverlist rank {
-		right: 0px;
-		width: 40px;
-
-		background-size: contain;
-		background-repeat: no-repeat;
+	.serverlist rank
+	{
+		width: 16px;
+	}
+	.serverlist .server rank
+	{
+		background-image: url( '../../img/ranksmall1.png' );
 	}
 
-	DIV.installgamemode, INPUT.searchbox {
-		margin-right: 0px;
+	.serverlist .server rank.rank5
+	{
+		background-image: url( '../../img/ranksmall5.png' );
+	}
+
+	.serverlist .server rank.rank4
+	{
+		background-image: url( '../../img/ranksmall4.png' );
+	}
+
+	.serverlist .server rank.rank3
+	{
+		background-image: url( '../../img/ranksmall3.png' );
+	}
+
+	.serverlist .server rank.rank2
+	{
+		background-image: url( '../../img/ranksmall2.png' );
+	}
+}
+
+@media screen and (max-width: 1650px)
+{
+	.serverlist lastvisited lbl
+	{
+		display: none;
+	}
+}
+
+@media screen and (max-width: 1366px)
+{
+	.serverinfo
+	{
+		width: 215px;
 	}
 }
 
@@ -688,3 +872,144 @@ name .favbutton.favorited:hover
 	background: url( '../../img/favourite_remove.png' );
 }
 
+/* Cat-JPG dark theme overrides while preserving current GMod server-browser layout. */
+.gamemode
+{
+	background-color: rgb(44, 44, 44);
+	background-image: -webkit-linear-gradient(bottom, rgb(44, 44, 44) 1%, rgb(55, 55, 55) 99%);
+	color: #fff;
+}
+
+.gamemode:hover
+{
+	background-image: -webkit-linear-gradient(bottom, rgb(33, 33, 33) 1%, rgb(27, 27, 27) 99%);
+}
+
+.gamemode .name tag,
+DIV.installgamemode,
+SPAN.installgamemode
+{
+	background-color: rgb(55, 55, 55);
+}
+
+.gamemode .stats,
+H1 small
+{
+	color: #fff;
+}
+
+.serverlist,
+.serverinfo,
+.server_gamemodes,
+.serverinfo players
+{
+	background-color: rgb(22, 22, 22);
+	color: #fff;
+}
+
+.server_gamemodes
+{
+	border-color: rgb(33, 33, 33);
+}
+
+.add_fav_server
+{
+	background-color: rgb(22, 22, 22);
+	color: #fff;
+}
+
+.add_fav_server button
+{
+	background-color: rgb(55, 55, 55);
+	color: #fff;
+}
+
+.add_fav_server button:hover
+{
+	background-color: rgb(44, 44, 44);
+}
+
+.serverlist .server
+{
+	background-color: rgb(22, 22, 22);
+	color: #fff;
+}
+
+.serverlist .server:nth-child(odd)
+{
+	background-color: rgb(27, 27, 27);
+}
+
+.serverlist .server:hover
+{
+	background-color: rgb(33, 33, 33);
+}
+
+.serverlist .header,
+A.bglink,
+.serverinfo .closebtn
+{
+	background-color: rgb(55, 55, 55);
+}
+
+A.bglink:hover,
+.serverinfo .closebtn:hover,
+DIV.installgamemode:hover,
+SPAN.installgamemode:hover
+{
+	background-color: rgb(44, 44, 44);
+}
+
+.serverlist name tag
+{
+	background: #ffcfcf;
+	color: #000;
+}
+
+.serverlist name tag.future
+{
+	background: #445994;
+	color: #fff;
+}
+
+.serverlist .missingmap map,
+.serverlist .empty players,
+.serverinfo address,
+.serverinfo subinfo,
+.serverinfo div.cell,
+.serverinfo header,
+.serverinfo players
+{
+	color: #fff;
+}
+
+.activeserver
+{
+	background-color: #c9931e !important;
+}
+
+DIV.installgamemode
+{
+	background: rgb(55, 55, 55) url( '../../img/gm_install32.png' ) no-repeat 6px center;
+}
+
+SPAN.installgamemode
+{
+	background: rgb(55, 55, 55) url( '../../img/gm_install16.png' ) no-repeat 13px center;
+}
+
+DIV.page DIV.options UL LI.sb_filter_sep
+{
+	border-top-color: rgb(255, 255, 255);
+	box-shadow: 1px 1px 1px black;
+}
+
+.flags_filter
+{
+	background: #4d4d4d;
+}
+
+.flags_filter .flag
+{
+	background: rgb(44, 44, 44);
+}
