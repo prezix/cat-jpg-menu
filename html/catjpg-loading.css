@@ -1,0 +1,284 @@
+/*
+	Cat-JPG-Menu loading screen theme.
+	Loaded after the stock loading.css, so only looks are overridden here.
+	--cat-accent / --cat-grade are set by js/catjpg-loading.js from the main menu settings.
+*/
+
+:root
+{
+	--cat-accent: #f3b112;
+	--cat-accent-glow: rgba(243, 177, 18, 0.6);
+	--cat-grade: 0.6;
+}
+
+BODY
+{
+	background-color: rgb(22, 22, 22);
+	color: #fff;
+}
+
+/* ------------------------------------------------------------------ */
+/* Background: crossfading cats with a Ken Burns move                   */
+/* ------------------------------------------------------------------ */
+
+#catjpg_bg_a,
+#catjpg_bg_b
+{
+	position: fixed;
+	top: -4%;
+	left: -4%;
+	width: 108%;
+	height: 108%;
+	z-index: -3;
+	background-size: cover;
+	background-position: center;
+	opacity: 0;
+	transition: opacity 1.6s ease;
+	will-change: transform, opacity;
+}
+
+#catjpg_bg_a.visible,
+#catjpg_bg_b.visible
+{
+	opacity: 1;
+}
+
+@keyframes catjpg-kb0 { from { transform: scale( 1.00 ) translate( 0, 0 ); }    to { transform: scale( 1.12 ) translate( -2%, -1% ); } }
+@keyframes catjpg-kb1 { from { transform: scale( 1.12 ) translate( 2%, 1% ); }  to { transform: scale( 1.00 ) translate( 0, 0 ); } }
+@keyframes catjpg-kb2 { from { transform: scale( 1.02 ) rotate( -1deg ); }      to { transform: scale( 1.14 ) rotate( 1deg ); } }
+@keyframes catjpg-kb3 { from { transform: scale( 1.10 ) translate( -2%, 1% ); } to { transform: scale( 1.02 ) translate( 1%, -1% ); } }
+
+.kb0 { animation: catjpg-kb0 12s ease-out both; }
+.kb1 { animation: catjpg-kb1 12s ease-out both; }
+.kb2 { animation: catjpg-kb2 12s ease-out both; }
+.kb3 { animation: catjpg-kb3 12s ease-out both; }
+
+/* Colour grading: vignette + accent tint + dark floor, strength from the menu settings */
+#catjpg_grade
+{
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	z-index: -1;
+	pointer-events: none;
+	opacity: var(--cat-grade);
+	background:
+		radial-gradient( ellipse at center, rgba( 0, 0, 0, 0 ) 40%, rgba( 0, 0, 0, 0.8 ) 100% ),
+		linear-gradient( 160deg, var(--cat-accent-glow) 0%, rgba( 0, 0, 0, 0 ) 45% ),
+		linear-gradient( to top, rgba( 22, 22, 22, 0.9 ) 0%, rgba( 22, 22, 22, 0 ) 35% );
+}
+
+/* The stock #background panel becomes a light dark wash so the cats show through */
+#background,
+body.dark #background
+{
+	background-image: none;
+	background-color: rgba( 22, 22, 22, 0.45 );
+	color: #fff;
+}
+
+.server_info
+{
+	color: #fff;
+	background-image: linear-gradient( to right, rgba( 0, 0, 0, 0.65 ) 0%, rgba( 0, 0, 0, 0.15 ) 75%, rgba( 0, 0, 0, 0 ) 100% );
+	border-left: 4px solid var(--cat-accent);
+}
+
+.server_info #mapimg
+{
+	border-radius: 4px;
+	box-shadow: 0 4px 14px rgba( 0, 0, 0, 0.6 );
+}
+
+/* Stock "walk" spinner in the accent colour */
+.walk
+{
+	background-color: var(--cat-accent);
+	color: #222;
+	box-shadow: 0 0 12px var(--cat-accent-glow);
+}
+
+/* ------------------------------------------------------------------ */
+/* Animations                                                           */
+/* ------------------------------------------------------------------ */
+
+@keyframes catjpg-fade-in { from { opacity: 0; } to { opacity: 1; } }
+@keyframes catjpg-logo-in { from { opacity: 0; transform: translateY( -16px ) scale( 0.95 ); } to { opacity: 1; transform: none; } }
+@keyframes catjpg-float   { 0%, 100% { transform: translateY( 0 ) rotate( 0deg ); } 50% { transform: translateY( -7px ) rotate( -1.5deg ); } }
+@keyframes catjpg-glow    { 0%, 100% { filter: drop-shadow( 0 4px 10px rgba( 0, 0, 0, 0.6 ) ); } 50% { filter: drop-shadow( 0 4px 18px var(--cat-accent-glow) ); } }
+@keyframes catjpg-info-in { from { opacity: 0; transform: translateX( -30px ); } to { opacity: 1; transform: none; } }
+@keyframes catjpg-bob     { 0%, 100% { margin-top: 0; } 50% { margin-top: -6px; } }
+@keyframes catjpg-pulse   { 0% { color: var(--cat-accent); } 100% { color: #fff; } }
+@keyframes catjpg-stripes { from { background-position: 0 0; } to { background-position: 20px 0; } }
+@keyframes catjpg-shine   { from { left: -30%; } to { left: 110%; } }
+@keyframes catjpg-done    { 0% { transform: scale( 1 ); } 50% { transform: scale( 1.04 ); } 100% { transform: scale( 1 ); } }
+
+#background
+{
+	animation: catjpg-fade-in 0.6s ease-out both;
+}
+
+/* Cat logo: drop in, then float and glow */
+#logo
+{
+	animation: catjpg-logo-in 0.6s 0.1s ease-out both, catjpg-float 4s 0.7s ease-in-out infinite, catjpg-glow 4s 0.7s ease-in-out infinite;
+}
+
+.walk
+{
+	animation: walk 10s linear infinite, catjpg-bob 1.2s ease-in-out infinite;
+}
+
+.server_info.visible
+{
+	animation: catjpg-info-in 0.5s ease-out both;
+}
+
+/* ------------------------------------------------------------------ */
+/* Status, progress, current file, tips                                 */
+/* ------------------------------------------------------------------ */
+
+#catjpg_loading
+{
+	margin-top: 18px;
+	width: 300px;
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+	text-shadow: 0 1px 2px #000;
+}
+
+#catjpg_status,
+#catjpg_file
+{
+	opacity: 0;
+	transition: opacity 0.3s ease;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+#catjpg_status.visible,
+#catjpg_file.visible
+{
+	opacity: 1;
+}
+
+#catjpg_status
+{
+	font-size: 14px;
+	font-weight: bold;
+	margin-bottom: 6px;
+}
+
+#catjpg_status.pulse
+{
+	animation: catjpg-pulse 0.8s ease-out;
+}
+
+#catjpg_file
+{
+	margin-top: 4px;
+	font-size: 11px;
+	color: rgba( 255, 255, 255, 0.6 );
+}
+
+#catjpg_progress
+{
+	position: relative;
+	height: 14px;
+	border-radius: 7px;
+	background: rgba( 0, 0, 0, 0.55 );
+	box-shadow: inset 0 1px 3px rgba( 0, 0, 0, 0.6 );
+	overflow: hidden;
+	opacity: 0;
+	transition: opacity 0.3s ease;
+}
+
+#catjpg_progress.visible
+{
+	opacity: 1;
+}
+
+#catjpg_progress.done
+{
+	animation: catjpg-done 0.6s ease-out;
+}
+
+#catjpg_progress_inner
+{
+	position: relative;
+	height: 100%;
+	width: 0;
+	border-radius: 7px;
+	overflow: hidden;
+	background-color: var(--cat-accent);
+	background-image: linear-gradient( 45deg, rgba( 255, 255, 255, 0.25 ) 25%, transparent 25%, transparent 50%, rgba( 255, 255, 255, 0.25 ) 50%, rgba( 255, 255, 255, 0.25 ) 75%, transparent 75%, transparent );
+	background-size: 20px 20px;
+	box-shadow: 0 0 10px var(--cat-accent-glow);
+	transition: width 0.4s ease;
+	animation: catjpg-stripes 0.8s linear infinite;
+}
+
+/* Light sweep across the filled part */
+#catjpg_progress_inner::after
+{
+	content: "";
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	width: 30%;
+	background: linear-gradient( to right, rgba( 255, 255, 255, 0 ), rgba( 255, 255, 255, 0.45 ), rgba( 255, 255, 255, 0 ) );
+	animation: catjpg-shine 1.8s ease-in-out infinite;
+}
+
+#catjpg_progress::after
+{
+	content: attr( data-label );
+	position: absolute;
+	left: 0;
+	right: 0;
+	top: 0;
+	line-height: 14px;
+	font-size: 10px;
+	font-weight: bold;
+	color: #fff;
+}
+
+#catjpg_tip
+{
+	margin-top: 14px;
+	min-height: 32px;
+	font-size: 13px;
+	font-style: italic;
+	color: rgba( 255, 255, 255, 0.85 );
+	opacity: 0;
+	transform: translateY( 4px );
+	transition: opacity 0.25s ease, transform 0.25s ease;
+}
+
+#catjpg_tip.show
+{
+	opacity: 1;
+	transform: none;
+}
+
+/* ------------------------------------------------------------------ */
+/* Animations off (menu setting) / reduce motion (OS setting)           */
+/* ------------------------------------------------------------------ */
+
+BODY.catjpg-noanim *,
+BODY.catjpg-noanim *::before,
+BODY.catjpg-noanim *::after
+{
+	animation: none !important;
+}
+
+@media ( prefers-reduced-motion: reduce )
+{
+	*, *::before, *::after
+	{
+		animation: none !important;
+		transition: none !important;
+	}
+}
