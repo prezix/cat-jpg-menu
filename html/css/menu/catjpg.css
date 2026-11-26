@@ -1,0 +1,1152 @@
+/*
+	Cat-JPG-Menu theme.
+
+	This file is loaded AFTER the stock Garry's Mod stylesheets (see html/menu.html),
+	so it only overrides colours. The stock layout files stay untouched, which means
+	Garry's Mod updates to Menu.css / NavBar.css / NewGame.css / Servers.css keep working.
+*/
+
+:root
+{
+	--cat-bg:        rgb(22, 22, 22);
+	--cat-bg-2:      rgb(27, 27, 27);
+	--cat-bg-3:      rgb(33, 33, 33);
+	--cat-bg-4:      rgb(44, 44, 44);
+	--cat-bg-5:      rgb(55, 55, 55);
+	--cat-bg-6:      rgb(66, 66, 66);
+	--cat-text:      #fff;
+	--cat-text-dim:  rgb(221, 221, 221);
+	--cat-accent:    #f3b112;
+	--cat-accent-hi: #ffc800;
+	--cat-accent-lo: #e9b600;
+	--cat-border:    rgba(22, 22, 22, 0.425);
+	--cat-accent-glow: rgba(243, 177, 18, 0.6);
+}
+
+/* ------------------------------------------------------------------ */
+/* Common (Menu.css)                                                    */
+/* ------------------------------------------------------------------ */
+
+INPUT.searchbox, INPUT.gm_search,
+INPUT[type="text"], INPUT[type="number"]
+{
+	border-color: var(--cat-border);
+}
+
+INPUT[type="text"], INPUT[type="number"]
+{
+	outline-color: var(--cat-bg-6);
+}
+
+INPUT.gm_search
+{
+	width: 80%;
+}
+
+.btn-primary, .btn-primary-disabled
+{
+	background-image: linear-gradient(var(--cat-bg), var(--cat-bg-4));
+	border-color: rgba(22, 22, 22, 0.98) rgba(22, 22, 22, 0.4) var(--cat-bg-4);
+}
+
+.btn-primary:hover
+{
+	background-image: linear-gradient(rgb(6, 10, 14), rgb(9, 13, 17));
+}
+
+#version
+{
+	color: var(--cat-text);
+	background-color: rgba(22, 22, 22, 0.98);
+}
+
+.news_buttons div
+{
+	background: var(--cat-bg-4);
+	box-shadow: 0 0 10px 1px rgba(22, 22, 22, 0.4);
+	border-radius: 0;
+}
+.news_buttons div.new          { background: #f55; }
+.news_buttons div.selected.new { background: #fcc; }
+.news_buttons div.selected     { background: var(--cat-accent); }
+
+.news_item,
+.news_item div
+{
+	border-radius: 0;
+}
+.news_item
+{
+	box-shadow: 0 0 10px 1px rgba(22, 22, 22, 0.4);
+}
+.news_item div span:hover
+{
+	color: var(--cat-accent);
+}
+
+/* ------------------------------------------------------------------ */
+/* Left option list (PageOptions.css)                                   */
+/* ------------------------------------------------------------------ */
+
+DIV.page DIV.options A:hover
+{
+	color: var(--cat-accent-hi);
+}
+
+DIV.page DIV.options.active, DIV.page DIV.options A.active
+{
+	color: var(--cat-accent-lo);
+}
+
+/* ------------------------------------------------------------------ */
+/* Navigation bar and popups (NavBar.css)                               */
+/* ------------------------------------------------------------------ */
+
+#NavBar
+{
+	background-color: transparent;
+}
+
+#NavBar .button,
+UL.popup LI
+{
+	background: var(--cat-bg);
+	color: var(--cat-text);
+}
+
+#NavBar .button:hover
+{
+	box-shadow: 0 0 20px rgb(41, 41, 41);
+}
+
+#NavBar .button SPAN,
+UL.gamemode_list LI SPAN,
+UL.language_list LI SPAN,
+UL.games_list LI SPAN
+{
+	color: var(--cat-text);
+}
+
+#NavBar number.severity1 { background: #ffc800;               color: #111; }
+#NavBar number.severity2 { background: #ff4000;               color: #fff; }
+
+UL.games_list,
+UL.language_list
+{
+	border-color: rgb(15, 15, 15);
+	background: var(--cat-bg);
+}
+
+UL.gamemode_list LI
+{
+	background: var(--cat-bg);
+	margin: 0 2px 2px 0;
+}
+
+UL.gamemode_list LI:hover { background: rgb(15, 15, 15); }
+UL.language_list LI:hover { background: var(--cat-bg-4); }
+
+#NavBar .button.catjpg_wallpaper IMG
+{
+	margin-top: 9px;
+}
+
+::-webkit-scrollbar       { background-color: var(--cat-bg-4); }
+::-webkit-scrollbar-thumb { background-color: var(--cat-bg-6); border-radius: 4px; }
+
+/* ------------------------------------------------------------------ */
+/* New game (NewGame.css)                                               */
+/* ------------------------------------------------------------------ */
+
+.maplist,
+gamesettings
+{
+	background-color: var(--cat-bg);
+	color: var(--cat-text);
+}
+
+.maplist .controls,
+UL.category LI:first-child,
+gamesettings .control LABEL
+{
+	color: var(--cat-text);
+}
+
+UL.category LI.mapicon.selected
+{
+	background-color: var(--cat-bg-6);
+}
+
+.dropdown .label
+{
+	background-image: linear-gradient(var(--cat-bg-3), var(--cat-bg));
+	border-color: var(--cat-bg) var(--cat-bg-3) var(--cat-bg-4);
+	text-align: center;
+}
+
+.dropdown .label:hover
+{
+	background-image: linear-gradient(var(--cat-bg-4), rgb(27, 27, 27));
+}
+
+.dropdown .contents
+{
+	background-image: linear-gradient(var(--cat-bg-3), var(--cat-bg));
+	border-color: var(--cat-bg-6);
+	color: var(--cat-text);
+	text-align: center;
+}
+
+.dropdown .contents div:hover
+{
+	background-color: var(--cat-bg-4);
+}
+
+.controls LI.category
+{
+	background-color: var(--cat-bg-3);
+	color: var(--cat-text-dim);
+}
+
+.controls LI.category:hover
+{
+	background-color: var(--cat-bg-4);
+}
+
+.controls LI.active
+{
+	background-color: var(--cat-bg-6) !important;
+	color: var(--cat-text);
+}
+
+.controls LI.category .count
+{
+	background-color: var(--cat-bg-5);
+	color: var(--cat-text);
+}
+
+/* ------------------------------------------------------------------ */
+/* Server browser (Servers.css)                                         */
+/* ------------------------------------------------------------------ */
+
+.gamemode
+{
+	background-color: var(--cat-bg-4);
+	background-image: linear-gradient(to top, var(--cat-bg-4) 1%, var(--cat-bg-5) 99%);
+	color: var(--cat-text);
+}
+
+.gamemode:hover
+{
+	background-image: linear-gradient(to top, var(--cat-bg-3) 1%, var(--cat-bg-2) 99%);
+}
+
+.gamemode .name tag
+{
+	background-color: var(--cat-bg-5);
+}
+
+.gamemode .stats,
+H1 small
+{
+	color: var(--cat-text);
+}
+
+.serverlist,
+.serverinfo,
+.server_gamemodes,
+.serverinfo players,
+.add_fav_server,
+.serverlist .server
+{
+	background-color: var(--cat-bg);
+	color: var(--cat-text);
+}
+
+.server_gamemodes
+{
+	border-color: var(--cat-bg-3);
+}
+
+.add_fav_server button
+{
+	background-color: var(--cat-bg-5);
+	color: var(--cat-text);
+}
+
+.add_fav_server button:hover
+{
+	background-color: var(--cat-bg-4);
+}
+
+.serverlist .server:nth-child(odd) { background-color: var(--cat-bg-2); }
+.serverlist .server:hover          { background-color: var(--cat-bg-3); }
+
+.serverlist .header,
+A.bglink,
+.serverinfo .closebtn
+{
+	background-color: var(--cat-bg-5);
+}
+
+A.bglink:hover,
+.serverinfo .closebtn:hover,
+DIV.installgamemode:hover,
+SPAN.installgamemode:hover
+{
+	background-color: var(--cat-bg-4);
+}
+
+.serverlist name tag        { background: #ffcfcf; color: #000; }
+.serverlist name tag.future { background: #445994; color: #fff; }
+
+.serverlist .missingmap map,
+.serverlist .empty players,
+.serverinfo address,
+.serverinfo subinfo,
+.serverinfo div.cell,
+.serverinfo header,
+.serverinfo players
+{
+	color: var(--cat-text);
+}
+
+.activeserver
+{
+	background-color: var(--cat-accent-lo) !important;
+}
+
+DIV.installgamemode
+{
+	background: var(--cat-bg-5) url( '../../img/gm_install32.png' ) no-repeat 6px center;
+}
+
+SPAN.installgamemode
+{
+	background: var(--cat-bg-5) url( '../../img/gm_install16.png' ) no-repeat 13px center;
+}
+
+DIV.page DIV.options UL LI.sb_filter_sep
+{
+	border-top-color: var(--cat-text);
+	box-shadow: 1px 1px 1px black;
+}
+
+.flags_filter       { background: #4d4d4d; }
+.flags_filter .flag { background: var(--cat-bg-4); }
+
+/* ------------------------------------------------------------------ */
+/* Animations                                                           */
+/* ------------------------------------------------------------------ */
+
+@keyframes catjpg-fade-in      { from { opacity: 0; } to { opacity: 1; } }
+@keyframes catjpg-slide-right  { from { opacity: 0; transform: translateX( -24px ); } to { opacity: 1; transform: none; } }
+@keyframes catjpg-slide-left   { from { opacity: 0; transform: translateX( 24px ); }  to { opacity: 1; transform: none; } }
+@keyframes catjpg-slide-up     { from { opacity: 0; transform: translateY( 12px ); }  to { opacity: 1; transform: none; } }
+@keyframes catjpg-pop          { from { opacity: 0; transform: translateY( 8px ) scale( 0.96 ); } to { opacity: 1; transform: none; } }
+@keyframes catjpg-spin         { from { transform: rotate( 0deg ); } to { transform: rotate( 360deg ); } }
+@keyframes catjpg-pulse        { 0%, 100% { transform: scale( 1 ); } 50% { transform: scale( 1.25 ); } }
+
+/* Page switch (ng-view inserts a fresh DIV.page on every route change) */
+DIV.page
+{
+	animation: catjpg-fade-in 0.25s ease-out both;
+}
+
+/* Main menu entries slide in one after another */
+DIV.page DIV.options UL LI
+{
+	animation: catjpg-slide-right 0.35s ease-out both;
+}
+DIV.page DIV.options UL LI:nth-child(1)  { animation-delay: 0.00s; }
+DIV.page DIV.options UL LI:nth-child(2)  { animation-delay: 0.03s; }
+DIV.page DIV.options UL LI:nth-child(3)  { animation-delay: 0.06s; }
+DIV.page DIV.options UL LI:nth-child(4)  { animation-delay: 0.09s; }
+DIV.page DIV.options UL LI:nth-child(5)  { animation-delay: 0.12s; }
+DIV.page DIV.options UL LI:nth-child(6)  { animation-delay: 0.15s; }
+DIV.page DIV.options UL LI:nth-child(7)  { animation-delay: 0.18s; }
+DIV.page DIV.options UL LI:nth-child(8)  { animation-delay: 0.21s; }
+DIV.page DIV.options UL LI:nth-child(9)  { animation-delay: 0.24s; }
+DIV.page DIV.options UL LI:nth-child(10) { animation-delay: 0.27s; }
+DIV.page DIV.options UL LI:nth-child(11) { animation-delay: 0.30s; }
+DIV.page DIV.options UL LI:nth-child(12) { animation-delay: 0.33s; }
+DIV.page DIV.options UL LI:nth-child(13) { animation-delay: 0.36s; }
+DIV.page DIV.options UL LI:nth-child(14) { animation-delay: 0.39s; }
+DIV.page DIV.options UL LI:nth-child(n+15) { animation-delay: 0.42s; }
+
+/* Submenus (server filters etc.) don't need the stagger */
+DIV.page DIV.options UL.submenu LI
+{
+	animation: none;
+}
+
+/* Menu links nudge right and glow on hover */
+DIV.page DIV.options A
+{
+	display: inline-block;
+	transition: color 0.15s ease, transform 0.15s ease, text-shadow 0.15s ease;
+}
+DIV.page DIV.options A:hover
+{
+	transform: translateX( 6px );
+	text-shadow: 2px 2px 1px #000, 0 0 12px var(--cat-accent-glow);
+}
+DIV.page DIV.options A:active
+{
+	transform: translateX( 6px ) scale( 0.97 );
+}
+
+/* News box */
+.news
+{
+	animation: catjpg-slide-left 0.45s 0.15s ease-out both;
+}
+.news_buttons div
+{
+	transition: background-color 0.2s ease, transform 0.15s ease;
+}
+.news_buttons div:hover
+{
+	transform: scale( 1.2 );
+}
+.news_buttons div.new
+{
+	animation: catjpg-pulse 1.6s ease-in-out infinite;
+}
+
+/* Navigation bar */
+#NavBar
+{
+	animation: catjpg-slide-up 0.35s ease-out both;
+}
+#NavBar .button
+{
+	transition: box-shadow 0.2s ease, background-color 0.2s ease, transform 0.15s ease;
+}
+#NavBar .button:hover
+{
+	transform: translateY( -2px );
+}
+#NavBar .button:active
+{
+	transform: translateY( 0 ) scale( 0.96 );
+}
+#NavBar .button.catjpg_wallpaper:active IMG
+{
+	animation: catjpg-spin 0.4s ease-out;
+}
+
+/* Popups (gamemodes / languages / games / kinect) are shown with jQuery .toggle(),
+   so the animation replays every time they become visible */
+UL.popup
+{
+	animation: catjpg-pop 0.18s ease-out both;
+}
+UL.popup LI
+{
+	transition: background-color 0.15s ease;
+}
+
+/* New game: map thumbnails */
+UL.category LI.mapicon
+{
+	transition: background-color 0.15s ease, transform 0.15s ease;
+}
+UL.category LI.mapicon:hover
+{
+	transform: translateY( -2px );
+}
+UL.category LI.mapicon IMG.thumbnail
+{
+	transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+UL.category LI.mapicon:hover IMG.thumbnail
+{
+	transform: scale( 1.05 );
+	box-shadow: 0 4px 14px rgba( 0, 0, 0, 0.6 );
+}
+UL.category LI.mapicon IMG.favtoggle
+{
+	transition: opacity 0.15s ease, transform 0.15s ease;
+}
+UL.category LI.mapicon IMG.favtoggle:hover
+{
+	transform: scale( 1.2 );
+}
+
+.controls LI.category,
+.dropdown .label,
+.dropdown .contents div
+{
+	transition: background-color 0.15s ease;
+}
+.dropdown .contents
+{
+	animation: catjpg-pop 0.15s ease-out both;
+}
+
+/* Server browser */
+.gamemode
+{
+	animation: catjpg-slide-up 0.3s ease-out both;
+	transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+.gamemode:hover
+{
+	transform: translateX( 4px );
+	box-shadow: -3px 0 0 var(--cat-accent);
+}
+.serverlist .server,
+A.bglink,
+.serverinfo .closebtn,
+.add_fav_server button,
+DIV.installgamemode,
+SPAN.installgamemode
+{
+	transition: background-color 0.12s ease;
+}
+.serverinfo
+{
+	animation: catjpg-slide-left 0.25s ease-out both;
+}
+
+/* Buttons and dialogs */
+.btn-primary
+{
+	transition: transform 0.12s ease, filter 0.12s ease;
+}
+.btn-primary:hover  { filter: brightness( 1.15 ); }
+.btn-primary:active { transform: scale( 0.97 ); }
+
+div.modaldialog     { animation: catjpg-fade-in 0.2s ease-out both; }
+div.centermessage   { animation: catjpg-pop 0.25s ease-out both; }
+
+#version
+{
+	transition: background-color 0.2s ease, color 0.2s ease;
+}
+#version:hover
+{
+	color: var(--cat-accent);
+}
+
+/* Respect the OS "reduce motion" setting */
+@media ( prefers-reduced-motion: reduce )
+{
+	*, *::before, *::after
+	{
+		animation-duration: 0.01ms !important;
+		animation-delay: 0s !important;
+		animation-iteration-count: 1 !important;
+		transition-duration: 0.01ms !important;
+	}
+}
+
+/* ------------------------------------------------------------------ */
+/* Settings popup                                                       */
+/* ------------------------------------------------------------------ */
+
+UL.catjpg_settings
+{
+	right: 100px;
+	width: 260px;
+	padding: 0;
+	border: 3px solid var(--cat-bg);
+	background: var(--cat-bg);
+}
+
+UL.catjpg_settings LI
+{
+	display: block !important;
+	height: auto !important;
+	margin: 0 !important;
+	padding: 10px 14px !important;
+	cursor: default;
+	white-space: normal;
+	font-weight: normal;
+	font-size: 12px;
+}
+
+UL.catjpg_settings H3
+{
+	margin: 0 0 8px 0;
+	font-size: 14px;
+	color: var(--cat-accent);
+}
+
+UL.catjpg_settings .catjpg_label
+{
+	margin-bottom: 4px;
+	color: var(--cat-text-dim);
+}
+
+UL.catjpg_settings .catjpg_swatches
+{
+	margin-bottom: 8px;
+}
+
+UL.catjpg_settings .catjpg_swatches I
+{
+	display: inline-block;
+	width: 22px;
+	height: 22px;
+	margin: 0 4px 4px 0;
+	border-radius: 50%;
+	border: 2px solid transparent;
+	cursor: pointer;
+	transition: transform 0.15s ease, border-color 0.15s ease;
+}
+
+UL.catjpg_settings .catjpg_swatches I:hover
+{
+	transform: scale( 1.15 );
+}
+
+UL.catjpg_settings .catjpg_swatches I.active
+{
+	border-color: #fff;
+}
+
+UL.catjpg_settings LABEL
+{
+	display: block;
+	margin: 4px 0;
+	cursor: pointer;
+	color: var(--cat-text);
+}
+
+UL.catjpg_settings INPUT[type="checkbox"]
+{
+	vertical-align: middle;
+	margin: 0 6px 0 0;
+	accent-color: var(--cat-accent);
+}
+
+UL.catjpg_settings .catjpg_actions
+{
+	margin-top: 10px;
+}
+
+UL.catjpg_settings .catjpg_actions A
+{
+	display: inline-block;
+	padding: 4px 10px;
+	margin-right: 4px;
+	border-radius: 3px;
+	background: var(--cat-bg-4);
+	color: var(--cat-text);
+	cursor: pointer;
+	transition: background-color 0.15s ease, color 0.15s ease;
+}
+
+UL.catjpg_settings .catjpg_actions A:hover
+{
+	background: var(--cat-accent);
+	color: #111;
+}
+
+#NavBar .button.catjpg_settings_btn IMG
+{
+	margin-top: 12px;
+	transition: transform 0.3s ease;
+}
+
+#NavBar .button.catjpg_settings_btn:hover IMG
+{
+	transform: rotate( -15deg ) scale( 1.15 );
+}
+
+/* ------------------------------------------------------------------ */
+/* Seasonal particles                                                   */
+/* ------------------------------------------------------------------ */
+
+@keyframes catjpg-fall  { from { transform: translateY( -5vh ); } to { transform: translateY( 105vh ); } }
+@keyframes catjpg-sway  { 0%, 100% { margin-left: 0; } 50% { margin-left: 18px; } }
+
+#catjpg_particles
+{
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	overflow: hidden;
+	pointer-events: none;
+	z-index: 5;
+}
+
+#catjpg_particles I
+{
+	position: absolute;
+	top: 0;
+	border-radius: 50%;
+	background: #fff;
+	box-shadow: 0 0 4px rgba( 255, 255, 255, 0.8 );
+	animation-name: catjpg-fall, catjpg-sway;
+	animation-timing-function: linear, ease-in-out;
+	animation-iteration-count: infinite, infinite;
+}
+
+#catjpg_particles.catjpg_season_halloween I
+{
+	border-radius: 50% 0;
+	background: #ff7a00;
+	box-shadow: 0 0 6px rgba( 255, 122, 0, 0.8 );
+}
+
+/* ------------------------------------------------------------------ */
+/* Animations switched off in the settings                              */
+/* ------------------------------------------------------------------ */
+
+BODY.catjpg-noanim *,
+BODY.catjpg-noanim *::before,
+BODY.catjpg-noanim *::after
+{
+	animation: none !important;
+	transition: none !important;
+}
+
+/* ------------------------------------------------------------------ */
+/* Workshop pages: addons, dupes, saves, demos (Workshop.css)           */
+/* ------------------------------------------------------------------ */
+
+workshopcontainer
+{
+	background-color: rgba( 22, 22, 22, 0.94 );
+	box-shadow: 0 0 24px rgba( 0, 0, 0, 0.5 );
+}
+
+workshopmessage
+{
+	color: #777;
+}
+
+workshopicon
+{
+	background-color: var(--cat-bg-3);
+	border-color: var(--cat-bg-5);
+	box-shadow: 0 2px 8px rgba( 0, 0, 0, 0.5 );
+}
+
+workshopicon name
+{
+	background-color: rgba( 22, 22, 22, 0.95 );
+	color: var(--cat-text-dim);
+}
+
+workshopicon author, workshopicon votes, workshopicon size
+{
+	background-color: var(--cat-bg-3);
+	color: var(--cat-text-dim);
+}
+
+workshopicon votes          { color: #6c6; }
+workshopicon votes.negative { color: #e66; }
+
+workshopicon description
+{
+	background-color: var(--cat-accent);
+	color: #111;
+}
+
+workshopicon.installed
+{
+	border-color: var(--cat-accent);
+}
+workshopicon.installed name, workshopicon.installed author, workshopicon.installed votes, workshopicon.installed size
+{
+	background: var(--cat-accent);
+	color: #111;
+}
+
+workshopicon.disabled
+{
+	border-color: var(--cat-bg-6);
+}
+workshopicon.disabled name, workshopicon.disabled author, workshopicon.disabled votes, workshopicon.disabled size
+{
+	background: var(--cat-bg-5);
+	color: #aaa;
+}
+
+controls control          { background-color: var(--cat-accent); }
+controls control:hover    { background-color: #fff; }
+controls control.disabled { background-color: var(--cat-bg-6); }
+
+.ugc_settings_button       { background: var(--cat-accent); }
+.ugc_settings_button:hover { background: var(--cat-accent-hi); }
+
+.ugc_settings
+{
+	background: var(--cat-bg-3);
+	color: var(--cat-text);
+}
+.ugc_settings a        { background: var(--cat-bg-5); color: var(--cat-text); }
+.ugc_settings a:hover  { background: var(--cat-bg-6); }
+.ugc_settings a:active { background: var(--cat-accent); color: #111; }
+
+.preset_list             { background: var(--cat-bg-3); color: var(--cat-text); }
+.preset_list font:hover  { background: var(--cat-bg-4); }
+.preset_list font.active { background: var(--cat-bg-6); }
+
+pagination
+{
+	background-color: var(--cat-bg);
+	color: var(--cat-text);
+}
+pagination .back, pagination .next
+{
+	background-color: var(--cat-accent);
+	transition: background-color 0.15s ease, transform 0.15s ease;
+}
+pagination .back:hover, pagination .next:hover
+{
+	background-color: var(--cat-accent-hi);
+}
+pagination .back:active, pagination .next:active
+{
+	transform: scale( 0.94 );
+}
+pagination a.page IMG
+{
+	filter: grayscale( 1 ) brightness( 2.2 );
+	transition: transform 0.15s ease;
+}
+pagination a.page:hover IMG
+{
+	transform: scale( 1.4 );
+}
+
+/* Workshop cards: pop in, lift on hover, zoom the preview */
+@keyframes catjpg-card-in { from { opacity: 0; transform: translateY( 10px ) scale( 0.97 ); } to { opacity: 1; transform: none; } }
+
+workshopicon
+{
+	animation: catjpg-card-in 0.3s ease-out both;
+	transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease;
+}
+workshopicon:nth-of-type(2)  { animation-delay: 0.03s; }
+workshopicon:nth-of-type(3)  { animation-delay: 0.06s; }
+workshopicon:nth-of-type(4)  { animation-delay: 0.09s; }
+workshopicon:nth-of-type(5)  { animation-delay: 0.12s; }
+workshopicon:nth-of-type(6)  { animation-delay: 0.15s; }
+workshopicon:nth-of-type(7)  { animation-delay: 0.18s; }
+workshopicon:nth-of-type(8)  { animation-delay: 0.21s; }
+workshopicon:nth-of-type(9)  { animation-delay: 0.24s; }
+workshopicon:nth-of-type(10) { animation-delay: 0.27s; }
+workshopicon:nth-of-type(11) { animation-delay: 0.30s; }
+workshopicon:nth-of-type(n+12) { animation-delay: 0.33s; }
+
+workshopicon:hover
+{
+	transform: translateY( -3px );
+	box-shadow: 0 6px 16px rgba( 0, 0, 0, 0.6 ), 0 0 0 1px var(--cat-accent);
+}
+workshopicon preview IMG
+{
+	transition: transform 0.3s ease, filter 0.3s ease;
+}
+workshopicon:hover preview IMG
+{
+	transform: scale( 1.06 );
+}
+
+/* ------------------------------------------------------------------ */
+/* Loading indicators                                                   */
+/* ------------------------------------------------------------------ */
+
+@keyframes catjpg-ring { to { transform: rotate( 360deg ); } }
+@keyframes catjpg-indeterminate
+{
+	0%   { left: -40%; width: 40%; }
+	60%  { left: 100%; width: 60%; }
+	100% { left: 100%; width: 60%; }
+}
+
+/* Workshop "Loading..." message (always the first workshopmessage in the stock templates) */
+workshopmessage:first-of-type::after
+{
+	content: "";
+	display: block;
+	width: 42px;
+	height: 42px;
+	margin: 18px auto 0 auto;
+	box-sizing: border-box;
+	border-radius: 50%;
+	border: 4px solid var(--cat-bg-5);
+	border-top-color: var(--cat-accent);
+	animation: catjpg-ring 0.8s linear infinite;
+}
+
+/* Thin bar at the top of the screen while the server list refreshes */
+.catjpg_topbar
+{
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	height: 3px;
+	overflow: hidden;
+	z-index: 2000;
+	background: rgba( 0, 0, 0, 0.3 );
+	pointer-events: none;
+}
+.catjpg_topbar::after
+{
+	content: "";
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	background: var(--cat-accent);
+	box-shadow: 0 0 8px var(--cat-accent);
+	animation: catjpg-indeterminate 1.4s ease-in-out infinite;
+}
+
+/* Stock-style progress bars anywhere in the menu */
+.progressbar
+{
+	background-color: rgba( 0, 0, 0, 0.55 );
+	border-radius: 4px;
+}
+.progressbar .inner
+{
+	background-color: var(--cat-accent);
+}
+
+/* ------------------------------------------------------------------ */
+/* Global accents                                                       */
+/* ------------------------------------------------------------------ */
+
+::selection
+{
+	background: var(--cat-accent);
+	color: #111;
+}
+
+INPUT[type="checkbox"], INPUT[type="radio"]
+{
+	accent-color: var(--cat-accent);
+}
+
+INPUT[type="text"]:focus, INPUT[type="number"]:focus, INPUT.searchbox:focus, INPUT.gm_search:focus
+{
+	outline: 2px solid var(--cat-accent);
+	outline-offset: 0;
+}
+
+::-webkit-scrollbar-thumb:hover
+{
+	background-color: var(--cat-accent);
+}
+
+/* ------------------------------------------------------------------ */
+/* Colour grading                                                       */
+/*   #catjpg_grade sits above the Lua-drawn wallpaper and below the UI. */
+/*   --cat-grade (0..1) is the strength, set from the settings popup.   */
+/* ------------------------------------------------------------------ */
+
+#catjpg_grade
+{
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	pointer-events: none;
+	opacity: var(--cat-grade, 0.6);
+	background:
+		radial-gradient( ellipse at center, rgba( 0, 0, 0, 0 ) 45%, rgba( 0, 0, 0, 0.75 ) 100% ),
+		linear-gradient( 160deg, var(--cat-accent-glow) 0%, rgba( 0, 0, 0, 0 ) 40% ),
+		linear-gradient( to top, rgba( 22, 22, 22, 0.85 ) 0%, rgba( 22, 22, 22, 0 ) 30% );
+	transition: opacity 0.4s ease;
+}
+
+/* Thumbnails get a light grade toward the theme and pop to full colour on hover */
+BODY.catjpg-grade UL.category LI.mapicon IMG.thumbnail,
+BODY.catjpg-grade workshopicon preview IMG
+{
+	filter: saturate( 0.85 ) contrast( 1.05 ) brightness( 0.95 );
+}
+BODY.catjpg-grade UL.category LI.mapicon:hover IMG.thumbnail,
+BODY.catjpg-grade workshopicon:hover preview IMG
+{
+	filter: none;
+}
+
+/* ------------------------------------------------------------------ */
+/* Cat picture animations                                               */
+/* ------------------------------------------------------------------ */
+
+@keyframes catjpg-float   { 0%, 100% { transform: translateY( 0 ) rotate( 0deg ); } 50% { transform: translateY( -6px ) rotate( -1deg ); } }
+@keyframes catjpg-wiggle  { 0%, 100% { transform: rotate( 0deg ) scale( 1.05 ); } 25% { transform: rotate( -4deg ) scale( 1.05 ); } 75% { transform: rotate( 4deg ) scale( 1.05 ); } }
+@keyframes catjpg-boop    { 0% { transform: scale( 1 ); } 40% { transform: scale( 0.9, 1.1 ); } 70% { transform: scale( 1.08, 0.94 ); } 100% { transform: scale( 1 ); } }
+@keyframes catjpg-logo-in { from { opacity: 0; transform: translateY( -20px ) scale( 0.9 ); } to { opacity: 1; transform: none; } }
+
+/* Main menu logo (gamemodes/<gm>/logo.png, the cat.jpg logo for sandbox) */
+DIV.page[ng-controller="ControllerMain"] DIV.options UL LI:first-child
+{
+	animation: catjpg-logo-in 0.5s ease-out both;
+}
+DIV.page[ng-controller="ControllerMain"] DIV.options UL LI:first-child IMG
+{
+	animation: catjpg-float 4s ease-in-out infinite;
+	transform-origin: 50% 80%;
+	filter: drop-shadow( 0 4px 10px rgba( 0, 0, 0, 0.6 ) );
+}
+DIV.page[ng-controller="ControllerMain"] DIV.options UL LI:first-child IMG:hover
+{
+	animation: catjpg-wiggle 0.5s ease-in-out infinite;
+	filter: drop-shadow( 0 4px 14px var(--cat-accent-glow) );
+}
+DIV.page[ng-controller="ControllerMain"] DIV.options UL LI:first-child IMG:active
+{
+	animation: catjpg-boop 0.35s ease-out;
+}
+
+/* Small cat icon in the nav bar */
+#NavBar .button.catjpg_wallpaper IMG
+{
+	border-radius: 3px;
+	transition: transform 0.2s ease;
+}
+#NavBar .button.catjpg_wallpaper:hover IMG
+{
+	transform: scale( 1.25 ) rotate( 8deg );
+}
+
+UL.catjpg_settings INPUT.catjpg_range
+{
+	width: 100%;
+	margin: 0 0 8px 0;
+	accent-color: var(--cat-accent);
+}
+
+/* ------------------------------------------------------------------ */
+/* Inputs (search boxes on new game / servers / addons pages)           */
+/* ------------------------------------------------------------------ */
+
+INPUT[type="text"], INPUT[type="number"], INPUT[type="search"],
+INPUT.searchbox, INPUT.gm_search, INPUT.search, INPUT.search_bar,
+SELECT, TEXTAREA
+{
+	background-color: var(--cat-bg-3);
+	color: var(--cat-text);
+	border: 1px solid var(--cat-bg-6);
+	transition: border-color 0.15s ease, background-color 0.15s ease;
+}
+
+INPUT[type="text"]:hover, INPUT[type="number"]:hover,
+INPUT.searchbox:hover, INPUT.gm_search:hover, INPUT.search:hover, INPUT.search_bar:hover
+{
+	border-color: var(--cat-accent);
+}
+
+INPUT::placeholder, TEXTAREA::placeholder
+{
+	color: #888;
+}
+
+/* ------------------------------------------------------------------ */
+/* Dialogs (uninstall all addons, presets, workshop collections ...)    */
+/* ------------------------------------------------------------------ */
+
+div.modaldialog
+{
+	background: rgba( 0, 0, 0, 0.65 );
+}
+
+div.centermessage
+{
+	background: var(--cat-bg);
+	color: var(--cat-text);
+	border-top: 3px solid var(--cat-accent);
+	box-shadow: 0 10px 40px rgba( 0, 0, 0, 0.7 );
+}
+
+div.centermessage span,
+div.centermessage label,
+div.centermessage H1,
+div.centermessage H2,
+div.centermessage .wstitle
+{
+	color: var(--cat-text);
+}
+
+div.centermessage a,
+div.centermessage .button,
+div.centermessage div.button
+{
+	background: var(--cat-bg-4);
+	color: var(--cat-text);
+	transition: background-color 0.15s ease, transform 0.1s ease;
+}
+
+div.centermessage a:hover,
+div.centermessage .button:hover
+{
+	background: var(--cat-bg-6);
+}
+
+div.centermessage a:active,
+div.centermessage .button:active
+{
+	background: var(--cat-accent);
+	color: #111;
+	transform: scale( 0.98 );
+}
+
+div.centermessage a.warning        { background: #ca1e12; color: #fff; }
+div.centermessage a.warning:hover  { background: #eb2719; }
+
+div.centermessage a.create         { background: var(--cat-accent); color: #111; }
+div.centermessage a.create:hover   { background: var(--cat-accent-hi); }
+div.centermessage a.create.disabled{ background: var(--cat-bg-5); color: #777; }
+
+div.centermessage wsbut:hover      { background: var(--cat-bg-6); }
+div.centermessage .subbed:hover    { background: var(--cat-bg-5) !important; }
+
+/* ------------------------------------------------------------------ */
+/* New game: start button and settings panel                            */
+/* ------------------------------------------------------------------ */
+
+.btn-primary, .btn-primary-disabled
+{
+	background-color: var(--cat-bg-4);
+}
+
+gamesettings .btn-primary,
+.maplist .btn-primary
+{
+	background-image: none;
+	background-color: var(--cat-accent);
+	border-color: var(--cat-accent-lo);
+	color: #111;
+	text-shadow: none;
+	font-weight: bold;
+	box-shadow: 0 0 12px var(--cat-accent-glow);
+}
+
+gamesettings .btn-primary:hover,
+.maplist .btn-primary:hover
+{
+	background-color: var(--cat-accent-hi);
+}
+
+.caret
+{
+	border-top-color: var(--cat-text);
+}
+
+/* ------------------------------------------------------------------ */
+/* Back button (bottom left)                                            */
+/* ------------------------------------------------------------------ */
+
+#NavBar #BackToMenu
+{
+	transition: box-shadow 0.2s ease, transform 0.15s ease;
+}
+
+#NavBar #BackToMenu:hover
+{
+	box-shadow: 0 0 0 2px var(--cat-accent), 0 0 18px var(--cat-accent-glow);
+}

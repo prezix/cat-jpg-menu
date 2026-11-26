@@ -9,6 +9,7 @@
 	<link rel="stylesheet" type="text/css" href="css/menu/NewGame.css" />
 	<link rel="stylesheet" type="text/css" href="css/menu/Servers.css" />
 	<link rel="stylesheet" type="text/css" href="css/Workshop.css" />
+	<link rel="stylesheet" type="text/css" href="css/menu/catjpg.css" />
 
 	<script type="text/javascript" src="js/thirdparty/jquery.js"></script>
 	<script type="text/javascript" src="js/thirdparty/angular.js"></script>
@@ -28,7 +29,7 @@
 	<script type="text/javascript" src="js/menu/control.Dupes.js"></script>
 
 	<script type="text/javascript" src="js/ngLocalize.js"></script>
-	<script type="text/javascript" src="js/menu/catjpg-compat.js"></script>
+	<script type="text/javascript" src="js/menu/catjpg.js"></script>
 
 	<script type="text/javascript" src="js/menu/TestData.js"></script>
 	<script type="text/javascript" src="js/menu/TestServers.js"></script>
@@ -37,6 +38,9 @@
 </head>
 
 <body ng-app="MenuApp" ng-controller="MenuController">
+
+<div id="catjpg_grade"></div>
+<div class="catjpg_topbar" ng-show="Refreshing[ ServerType ] == 'true'"></div>
 
 <div id="version" ng-click="ShowNews()" ng-show="Branch"><span ng-show="Branch != 'unknown'">You are on the {{Branch}} branch. Click here to find out more. ( </span>{{Version}}<span ng-show="Branch != 'unknown'"> )</span></div>
 
@@ -60,13 +64,15 @@
 		<div class="button bigicon hidelabel" ng-show="InGame && ShowFavButton && !IsCurrentServerFav" ng-click="ToggleServerFavorites( true )"><a href="#/"><img src='img/favourite_server.png' loading="lazy"><span ng-Localize="'favorite_this_server'"></span></a></div>
 		<div class="button bigicon hidelabel" ng-show="InGame && ShowFavButton && IsCurrentServerFav" ng-click="ToggleServerFavorites( false )"><a href="#/"><img src='img/favourite_server_del.png' loading="lazy"><span ng-Localize="'unfavorite_this_server'"></span></a></div>
 	</div>
-
+	
 	<div class="group right">
 		<div class="button smallicon hidelabel" style="overflow: visible;" ng-click="ToggleProblems()"><img ng-src='img/error.png'>
 			<span ng-Localize="'problems'"></span>
 			<number ng-show="ProblemCount > 0" class="{{IfElse( ProblemSeverity > 0, 'severity' + ProblemSeverity, '' )}}">{{ProblemCount}}</number>
 		</div>
 		<div class="button smallicon" ng-click="TogglePopup('.kinect_settings')" ng-show="kinect.available"><img ng-src='img/kinect.png' loading="lazy"><span></span></div>
+		<div class="button smallicon catjpg_wallpaper" ng-click="CatNextWallpaper()" ng-hide="InGame" title="{{CatT('next')}}"><img src='img/catjpg_wallpaper.png'><span></span></div>
+		<div class="button smallicon catjpg_settings_btn" ng-click="TogglePopup('.catjpg_settings')" title="{{CatT('settings')}}"><img src='img/catjpg_settings.png'><span></span></div>
 		<div class="button smallicon hidelabel" ng-click="ToggleGames()"><img ng-src='img/games.png'><span ng-Localize="'games'"></span></div>
 		<div class="button smallicon" ng-click="ToggleLanguage()"><img style="margin-top: 9px;" ng-src='../resource/localization/{{Language}}.png'><span></span></div>
 		<div class="button bigicon" ng-click="ToggleGamemodes()"><img ng-src='../gamemodes/{{Gamemode}}/icon24.png'><span>{{GamemodeTitle}}</span></div>
@@ -99,6 +105,29 @@
 		<span style="margin-left: 16px;">{{game.title}}</span>
 	</li>
 
+</ul>
+
+<ul class="catjpg_settings popup">
+	<li>
+		<h3>{{CatT('settings')}}</h3>
+
+		<div class="catjpg_label">{{CatT('accent')}}</div>
+		<div class="catjpg_swatches">
+			<i ng-repeat="name in CatAccentNames" ng-click="CatSetAccent( name )" ng-class="{ active: Cat.accent == name }" ng-style="{ 'background-color': CatAccents[ name ][ 0 ] }" title="{{name}}"></i>
+		</div>
+
+		<div class="catjpg_label">{{CatT('grade')}}: {{Cat.grade}}%</div>
+		<input class="catjpg_range" type="range" min="0" max="100" step="5" ng-model="Cat.grade" ng-change="CatSave()">
+
+		<label><input type="checkbox" ng-model="Cat.animations" ng-change="CatSave()"> {{CatT('animations')}}</label>
+		<label><input type="checkbox" ng-model="Cat.seasonal" ng-change="CatSave()"> {{CatT('seasonal')}}</label>
+		<label><input type="checkbox" ng-model="Cat.allGamemodes" ng-change="CatSave()"> {{CatT('allgm')}}</label>
+
+		<div class="catjpg_actions">
+			<a ng-click="CatNextWallpaper()" ng-hide="InGame">{{CatT('next')}}</a>
+			<a ng-click="CatReset()">{{CatT('reset')}}</a>
+		</div>
+	</li>
 </ul>
 
 <ul class="kinect_settings popup">
